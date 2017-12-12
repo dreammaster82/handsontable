@@ -417,7 +417,8 @@ function TableView(instance) {
         return;
       }
 
-      if (event.button === 0 && isMouseDown) {
+      var ignoreSelection = instance.getSettings().ignoreSelection;
+      if (!ignoreSelection && event.button === 0 && isMouseDown) {
         if (coords.row >= 0 && coords.col >= 0) { // is not a header
           if (instance.selection.selectedHeader.cols && !blockCalculations.column) {
             instance.selection.setRangeEnd(new CellCoords(instance.countRows() - 1, coords.col), false);
