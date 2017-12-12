@@ -762,7 +762,7 @@ TableView.prototype.updateCellHeader = function(element, index, content) {
 
   } else {
     // workaround for https://github.com/handsontable/handsontable/issues/1946
-    fastInnerText(element, String.fromCharCode(160));
+    fastInnerText(element, this.settings.cornerHeader ? this.settings.cornerHeader() : String.fromCharCode(160));
     addClass(element, 'cornerHeader');
   }
 };
